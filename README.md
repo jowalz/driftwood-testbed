@@ -1,18 +1,18 @@
 # shorturl
 
-Minimaler In-Memory URL-Shortener.
+Minimal in-memory URL shortener.
 
 ## API
 
 ### `shorten_url(long_url: str) -> str`
 
-Erzeugt einen 6-stelligen Kurzcode für `long_url`. Links laufen nach 1 Stunde ab.
+Generates a 6-character short code for `long_url`. Links expire after 1 hour.
 
 ### `resolve_url(code: str) -> str`
 
-Löst einen Kurzcode zur Original-URL auf. Wirft `KeyError`, wenn der Code unbekannt oder abgelaufen ist.
+Resolves a short code to the original URL. Raises `KeyError` if the code is unknown or expired.
 
-## Beispiel
+## Example
 
 ```python
 code = shorten_url("https://example.com")
