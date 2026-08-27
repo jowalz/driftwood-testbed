@@ -18,17 +18,6 @@ def shorten_url(long_url: str, ttl_seconds: int = 86400, min_length: int = 6, ma
     return code
 
 
-def resolve_url(code: str) -> str | None:
-    """Resolves a short code. Returns None if unknown or expired."""
-    entry = _store.get(code)
-    if not entry:
-        return None
-    if entry["expires_at"] < time.time():
-        del _store[code]
-        return None
-    return entry["url"]
-
-
 def delete_url(code: str) -> bool:
     """Deletes a short code early. Returns True if it existed."""
     return _store.pop(code, None) is not None
