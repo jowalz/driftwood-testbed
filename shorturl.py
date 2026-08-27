@@ -11,7 +11,7 @@ def _generate_code(length: int = 6) -> str:
     return "".join(random.choices(string.ascii_letters + string.digits, k=length))
 
 
-def shorten_url(long_url: str, ttl_seconds: int = 86400, code_length: int = 8) -> str:
+def shorten_url(long_url: str, ttl_seconds: int = 86400, code_length: int = 10) -> str:
     """Generates a short code for long_url with expiry ttl_seconds."""
     code = _generate_code(code_length)
     _store[code] = {"url": long_url, "expires_at": time.time() + ttl_seconds}
