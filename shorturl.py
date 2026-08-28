@@ -7,7 +7,7 @@ import time
 _store = {}
 
 
-def _generate_code(length: int = 6) -> str:
+def _generate_code(length: int = 9) -> str:
     return "".join(random.choices(string.ascii_letters + string.digits, k=length))
 
 
